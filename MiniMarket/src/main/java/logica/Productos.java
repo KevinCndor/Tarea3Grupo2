@@ -2,7 +2,7 @@
 package logica;
 
 import java.io.Serializable;
-
+import java.util.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +20,7 @@ public class Productos implements Serializable {
 	private double precio;
 	private String distribuidor;
 	private int unidades;
+	private ArrayList<Productos> listaProd = new ArrayList<>();
 
 	public Productos(int id, String codigo, String nombre, double precio, String distribuidor, int unidades) {
 		super();
@@ -32,7 +33,6 @@ public class Productos implements Serializable {
 	}
 
 	public Productos() {
-
 	}
 
 	public int getId() {
@@ -83,4 +83,11 @@ public class Productos implements Serializable {
 		this.unidades = unidades;
 	}
 
+	public ArrayList<Productos> getListaProd() {
+		return listaProd;
+	}
+
+	public void setListaProd(Productos producto) {
+		this.listaProd.add(producto);
+	}
 }

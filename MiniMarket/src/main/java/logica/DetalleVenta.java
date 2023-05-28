@@ -2,6 +2,7 @@
 package logica;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,12 +19,19 @@ public class DetalleVenta implements Serializable {
 	private String nombre;
 	private double precio;
 	private int cantidad;
-
+	ArrayList<DetalleVenta> listaDetalles = new ArrayList<>();
+	
 	public DetalleVenta() {
-
+	}
+	
+	public DetalleVenta(String nombre, double precio, int cantidad) {
+		super();
+		this.nombre = nombre;
+		this.precio = precio;
+		this.cantidad = cantidad;
 	}
 
-	public DetalleVenta(int id, String nombre, double precio, String unidades, int cantidad) {
+	public DetalleVenta(int id, String nombre, double precio, int cantidad) {
 		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
@@ -60,6 +68,21 @@ public class DetalleVenta implements Serializable {
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+	}
+
+	public void setListaDetalles(DetalleVenta detVenta) {
+		this.listaDetalles.add(detVenta);
+	}
+	
+	public ArrayList<DetalleVenta> getListaDetalles() {
+		return listaDetalles;
+	}
+
+	public void calcularTotal (){
+	    double total = 0;
+	    for (DetalleVenta detallesVenta : listaDetalles){
+	    	total += (detallesVenta.getPrecio() * detallesVenta.getCantidad());
+	    }
 	}
 
 }

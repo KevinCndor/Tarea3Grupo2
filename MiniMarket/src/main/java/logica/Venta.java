@@ -2,8 +2,8 @@
 package logica;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
+import java.util.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,8 +17,9 @@ public class Venta implements Serializable {
 
 	private String ciCliente;
 	private String fecha;
-	private double total;
-
+	private ArrayList<Venta> listaVentas = new ArrayList<>();
+	double total = 0;
+	
 	public Venta(int id, String ciCliente, String fecha, double total) {
 		super();
 		this.id = id;
@@ -63,4 +64,12 @@ public class Venta implements Serializable {
 		this.total = total;
 	}
 
+	public ArrayList<Venta> getListaVentas() {
+		return listaVentas;
+	}
+
+	public void setListaVentas(Venta ventas) {
+		this.listaVentas.add(ventas);
+	}
+	
 }

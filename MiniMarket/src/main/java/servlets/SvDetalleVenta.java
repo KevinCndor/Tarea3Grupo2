@@ -25,7 +25,7 @@ public class SvDetalleVenta extends HttpServlet {
 
 	DetalleVentaJpaController controlDetVenta = new DetalleVentaJpaController();
 	ControladoraProductos controlP = new ControladoraProductos();
-	private List<DetalleVenta> listaDetalleVenta;
+
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -68,7 +68,7 @@ public class SvDetalleVenta extends HttpServlet {
 		detVenta.setNombre(nombre);
 		detVenta.setPrecio(precio);
 		detVenta.setCantidad(cantidad);
-		listaDetalleVenta = controlDetVenta.listaDetVenta;
+		detVenta.setListaDetalles(detVenta);
 		controlDetVenta.create(detVenta);
 		response.sendRedirect("venta.jsp");
 	}

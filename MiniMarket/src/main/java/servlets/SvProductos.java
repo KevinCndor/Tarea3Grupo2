@@ -59,10 +59,10 @@ public class SvProductos extends HttpServlet {
 		producto.setPrecio(precio);
 		producto.setDistribuidor(distribuidor);
 		producto.setUnidades(unidades);
-
+		producto.setListaProd(producto);
+		
 		controlP.crearProducto(producto);
 		response.sendRedirect("inventario.jsp");
-
 	}
 
 	@Override

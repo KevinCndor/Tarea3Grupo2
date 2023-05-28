@@ -61,7 +61,7 @@
 		</div>
 	</form>
 	<br>
-	<form action="comprobante.jsp" method="POST">
+	<form action="SvVenta" method="POST">
 	<label for="cedula">Cedula:</label>
 	    <input type="text" id="cedula" name="cedula" required><br><br>
 			<div class="left">
