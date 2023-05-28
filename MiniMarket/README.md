@@ -1,1 +1,1 @@
-# Tarea2Grupo2
+# Práctica1:Refactorización Grupo2
